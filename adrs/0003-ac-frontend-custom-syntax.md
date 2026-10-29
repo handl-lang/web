@@ -3,6 +3,7 @@ title: 'handl Frontend: Custom `.handl` Syntax'
 type: adr
 date: 2026-10-28
 status: proposed
+status_note: Proposed
 ---
 
 # handl Frontend: Custom `.handl` Syntax
@@ -472,7 +473,3 @@ everywhere else, especially for functions and parameterized fields.
   pure syntactic transformation producing the same `NonFunctionValue`.
 - Custom dialects (different key names) are not addressed here — the
   `.handl` frontend targets the canonical dialect.
-
-## Status
-
-Proposed

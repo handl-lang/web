@@ -3,6 +3,7 @@ title: 'Step-Arrow Concurrency: Handl-Authored Scheduler over epoll'
 type: adr
 date: 2026-10-28
 status: accepted
+status_note: accepted
 ---
 
 # Step-Arrow Concurrency: Handl-Authored Scheduler over epoll
@@ -73,7 +74,3 @@ No new Rust. HTTP/RFC packages build on this once the backend is verified.
 - Runtime verification of the backend waits on the in-flight
   import/eval refactor landing (imported exported arrows must be
   applicable; `ffi.call` must dispatch through the FFI layer).
-
-## Status
-
-accepted

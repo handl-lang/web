@@ -3,6 +3,7 @@ title: HTTP Client/Server Crate Split and Server Runtime
 type: adr
 date: 2026-10-28
 status: accepted
+status_note: Accepted
 ---
 
 # HTTP Client/Server Crate Split and Server Runtime
@@ -192,7 +193,3 @@ The HTTP client/server split and production-baseline server are implemented and 
 - P2: Created `handl-lib-http-server` with the `HttpServer` trait, `HttpServerModule`, `HttpServerRequest`/`HttpServerResponse`, `HttpServerError`, and `StubHttpServer` tests.
 - P3: Created `handl-lib-http-server-std` with `StdHttpServer` (tokio + hyper HTTP/1.1), `ServerConfig` (body limit, idle timeout, keep-alive), request body size enforcement, idle timeout, `JoinSet`-based graceful shutdown, `mime_guess` for static files, and default `Content-Type` for handler responses.
 - `cargo test` passes for `handl-lib-http-client`, `handl-lib-http-client-std`, `handl-lib-http-server`, `handl-lib-http-server-std`, and `handl-runtime-modules`.
-
-## Status
-
-Accepted

@@ -3,13 +3,10 @@ title: Handl SDK Generator — WebIDL / JS Backend
 type: adr
 date: 2026-10-28
 status: proposed
+status_note: Proposed.
 ---
 
 # ADR-0113: Handl SDK Generator — WebIDL / JS Backend
-
-## Status
-
-Proposed.
 
 ## Context
 

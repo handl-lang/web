@@ -3,6 +3,7 @@ title: '`sdkgen-webidl` backend and the JS emitters'
 type: adr
 date: 2026-10-28
 status: accepted
+status_note: Accepted — extracted in ADR-0128 Phase 5.
 ---
 
 # ADR-0137: `sdkgen-webidl` backend and the JS emitters
@@ -30,7 +31,3 @@ layer, together with the 13 `generated/*-webidl-browser/` output trees and the
 - `webidl` consumes the `c` backend the same way `python` does, so a WebIDL
   flow is backend `c` + emitter `webidl` unless a pure-IDL backend is added.
 - Spec inputs stay gitignored; generated output is committed.
-
-## Status
-
-Accepted — extracted in ADR-0128 Phase 5.

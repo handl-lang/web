@@ -3,13 +3,10 @@ title: Handl Single-File Component (`.hfc`) Format
 type: adr
 date: 2026-10-28
 status: proposed
+status_note: Proposed.
 ---
 
 # ADR-0116: Handl Single-File Component (`.hfc`) Format
-
-## Status
-
-Proposed.
 
 ## Context
 

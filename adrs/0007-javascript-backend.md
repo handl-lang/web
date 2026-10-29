@@ -3,6 +3,7 @@ title: JavaScript Backend
 type: adr
 date: 2026-10-28
 status: proposed
+status_note: Proposed
 ---
 
 # JavaScript Backend
@@ -285,7 +286,3 @@ Compile the Rust evaluator to JS via emscripten.
 
 - **No impact on the LSP server or editor extensions** — the JS backend is a separate target crate.
 - **No impact on the Rust evaluator** — both backends coexist. The user chooses which target to compile to.
-
-## Status
-
-Proposed

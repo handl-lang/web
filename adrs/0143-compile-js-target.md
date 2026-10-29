@@ -3,6 +3,7 @@ title: '`compile-js` target'
 type: adr
 date: 2026-10-28
 status: accepted
+status_note: Accepted — extracted in ADR-0128 Phase 5.
 ---
 
 # ADR-0143: `compile-js` target
@@ -32,7 +33,3 @@ a feature on its own manifest.
 - The static `registry.register(Box::new(JsCompiler))` in the platform
   dispatcher is deleted; the target is registered from this module.
 - A JS-specific change no longer rebuilds the platform workspace.
-
-## Status
-
-Accepted — extracted in ADR-0128 Phase 5.

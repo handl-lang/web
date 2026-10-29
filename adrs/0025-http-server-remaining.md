@@ -3,13 +3,10 @@ title: 'ADR-0025 (Remaining): HTTP Client/Server v1.x and v2 Enhancements'
 type: adr
 date: 2026-10-28
 status: proposed
+status_note: Proposed
 ---
 
 # ADR-0025 (Remaining): HTTP Client/Server v1.x and v2 Enhancements
-
-## Status
-
-Proposed
 
 ## Context
 

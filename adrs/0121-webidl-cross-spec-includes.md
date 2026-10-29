@@ -3,13 +3,10 @@ title: WebIDL Cross-Spec `includes` — Supplementary Mixin Specs
 type: adr
 date: 2026-10-28
 status: accepted
+status_note: Accepted.
 ---
 
 # ADR-0121: WebIDL Cross-Spec `includes` — Supplementary Mixin Specs
-
-## Status
-
-Accepted.
 
 ## Context
 
