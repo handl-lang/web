@@ -1,0 +1,3 @@
+# Pre-registry ADR number collisions, tolerated as-is (ADR-0129 §3).
+# Numbers are never renumbered or reused; only a *new* collision is an error.
+25  # 0025-http-server-remaining.md + archived/0025-http-server{,-v1-complete}.md
