@@ -1,3 +1,10 @@
+---
+title: HTTP Client/Server Crate Split and Server Runtime
+type: adr
+date: 2026-10-28
+status: accepted
+---
+
 # HTTP Client/Server Crate Split and Server Runtime
 
 ## Context

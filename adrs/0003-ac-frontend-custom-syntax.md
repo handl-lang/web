@@ -1,3 +1,10 @@
+---
+title: 'handl Frontend: Custom `.handl` Syntax'
+type: adr
+date: 2026-10-28
+status: proposed
+---
+
 # handl Frontend: Custom `.handl` Syntax
 
 ## Context

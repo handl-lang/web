@@ -1,3 +1,10 @@
+---
+title: '`sdkgen-webidl` backend and the JS emitters'
+type: adr
+date: 2026-10-28
+status: accepted
+---
+
 # ADR-0137: `sdkgen-webidl` backend and the JS emitters
 
 ## Context

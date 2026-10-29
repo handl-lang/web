@@ -1,3 +1,10 @@
+---
+title: '`compile-js` target'
+type: adr
+date: 2026-10-28
+status: accepted
+---
+
 # ADR-0143: `compile-js` target
 
 ## Context

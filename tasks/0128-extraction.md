@@ -1,3 +1,9 @@
+---
+title: Task 0128 — `web/` extraction (ADR-0128 Phase 5)
+type: task
+date: 2026-10-28
+---
+
 # Task 0128 — `web/` extraction (ADR-0128 Phase 5)
 
 Expand ADR-0128 Phase 5 for this repo. The docs are already on

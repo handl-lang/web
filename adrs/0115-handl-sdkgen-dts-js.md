@@ -1,3 +1,10 @@
+---
+title: Handl SDK Generator — TypeScript Declaration (.d.ts) Backend
+type: adr
+date: 2026-10-28
+status: proposed
+---
+
 # ADR-0115: Handl SDK Generator — TypeScript Declaration (.d.ts) Backend
 
 ## Status

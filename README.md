@@ -1,3 +1,9 @@
+---
+title: '`project/` — web'
+type: readme
+date: 2026-10-28
+---
+
 # `project/` — web
 
 Docs for the `web` target live on this `project` branch, mounted as the

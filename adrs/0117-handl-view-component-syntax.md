@@ -1,3 +1,10 @@
+---
+title: Handl View / JSX-like Component Syntax for JS Targets
+type: adr
+date: 2026-10-28
+status: proposed
+---
+
 # ADR-0117: Handl View / JSX-like Component Syntax for JS Targets
 
 ## Status

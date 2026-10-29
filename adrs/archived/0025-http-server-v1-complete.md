@@ -1,3 +1,10 @@
+---
+title: 'ADR-0025 (Archived): HTTP Client/Server v1 — Complete'
+type: adr
+date: 2026-10-28
+status: accepted
+---
+
 # ADR-0025 (Archived): HTTP Client/Server v1 — Complete
 
 ## Status

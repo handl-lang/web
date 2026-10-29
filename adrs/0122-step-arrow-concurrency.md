@@ -1,3 +1,10 @@
+---
+title: 'Step-Arrow Concurrency: Handl-Authored Scheduler over epoll'
+type: adr
+date: 2026-10-28
+status: accepted
+---
+
 # Step-Arrow Concurrency: Handl-Authored Scheduler over epoll
 
 ## Context
