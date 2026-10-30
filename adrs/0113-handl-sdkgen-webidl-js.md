@@ -6,18 +6,11 @@ status: proposed
 status_note: Proposed.
 ---
 
+
 # ADR-0113: Handl SDK Generator — WebIDL / JS Backend
 
-## Context
-
-[ADR-0107 — Handl SDK Generator](./0107-handl-sdk-generator.md) established a
-backend-agnostic `SdkgenModule` IR and a port-adapter emitter. The C backend
-(`plugin-sdkgen-backend-c`) is the first concrete implementation. The next
-high-priority target is the Web platform: Handl running in browsers, Deno, or
-Node must be able to call existing Web APIs (WebGL, WebGPU, DOM, etc.) and
-first-class `.webidl` definitions.
-
 ## Decision
+
 
 Add a `plugin-sdkgen-backend-webidl` crate that parses WebIDL files and produces
 `SdkgenModule` records.
@@ -38,17 +31,26 @@ Add a `plugin-sdkgen-backend-webidl` crate that parses WebIDL files and produces
 - The first target runtime is **Deno / Browser** because both expose standard
   Web APIs without an extra native binding step. Node support can follow later.
 
+
+## Why
+
+[ADR-0107 — Handl SDK Generator](./0107-handl-sdk-generator.md) established a backend-agnostic `SdkgenModule` IR and a port-adapter emitter. The C backend (`plugin-sdkgen-backend-c`) is the first concrete implementation. The next high-priority target is the Web platform: Handl running in browsers, Deno, or Node must be able to call existing Web APIs (WebGL, WebGPU, DOM, etc.) and first-class `.webidl` definitions.
+
+## Not doing
+
+- none recorded — legacy record; the design doc lists what was deferred.
+
 ## Consequences
 
 - Handl can consume the Web platform API surface directly.
 - A `js` client package must be designed and implemented, paralleling `ffi` and
-  the proposed `jvm` client.
 - WebIDL overloads and optional arguments require a name-mangling / defaulting
-  scheme in the port.
 - This backend is, by request, the highest-priority future backend in the SDK
-  generator roadmap, ahead of JVM, Bukkit/Spigot, and Windows/macOS C support.
 
-## References
+## Enforcement
 
-- [ADR-0107 — Handl SDK Generator](./0107-handl-sdk-generator.md)
-- `crates/plugin-sdkgen`
+- Code and tests are named in the design doc.
+
+## Design
+
+The full record (context, tables, phases, trade-offs): [`design/0113-handl-sdkgen-webidl-js.md`](../design/0113-handl-sdkgen-webidl-js.md).

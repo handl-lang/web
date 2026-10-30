@@ -6,17 +6,11 @@ status: proposed
 status_note: Proposed.
 ---
 
+
 # ADR-0117: Handl View / JSX-like Component Syntax for JS Targets
 
-## Context
-
-[ADR-0115 — `.d.ts` SDKgen](./0115-handl-sdkgen-dts-js.md) will make JS
-frameworks reachable as low-level Handl arrows (`createElement`, `h`, `useState`,
-`ref`). That is verbose. [ADR-0116 — `.hfc` SFC Format](./0116-handl-sfc-format.md)
-packages the view into a file with `<template>`, `<script>`, and `<style>`. This
-ADR defines the inline view syntax itself.
-
 ## Decision
+
 
 Add a `view` block and XML-like tag syntax to Handl. It is parsed as an optional
 language surface and lowered to ordinary Handl arrows by the `component`
@@ -107,19 +101,26 @@ runtime calls:
 This is equivalent to the JSX factory setting in TypeScript, but extended to
 multiple target frameworks.
 
+
+## Why
+
+[ADR-0115 — `.d.ts` SDKgen](./0115-handl-sdkgen-dts-js.md) will make JS frameworks reachable as low-level Handl arrows (`createElement`, `h`, `useState`, `ref`). That is verbose. [ADR-0116 — `.hfc` SFC Format](./0116-handl-sfc-format.md) packages the view into a file with `<template>`, `<script>`, and `<style>`. This ADR defines the inline view syntax itself.
+
+## Not doing
+
+- none recorded — legacy record; the design doc lists what was deferred.
+
 ## Consequences
 
 - The `component` pass is a pure `Ast → Ast` transform and can be previewed,
-  traced, or disabled via `hnl transform component`.
 - SFC packaging is handled separately in ADR-0116.
 - The syntax is small and not framework-specific; adding Astro, Svelte, or Solid
-  later is a new `target` adapter, not new grammar.
 - Out of scope for the first version: framework-specific lifecycle hooks
-  (`onMounted`, `onUnmounted`, `useEffect`).
 
-## References
+## Enforcement
 
-- [ADR-0094 — Generic AST Transform Engine](./0094-generic-ast-transform-engine.md)
-- [ADR-0114 — Handl Compile Plugin](./0114-handl-compile-plugin-architecture.md)
-- [ADR-0115 — Handl SDK Generator: TypeScript Declaration Backend](./0115-handl-sdkgen-dts-js.md)
-- [ADR-0116 — Handl Single-File Component Format](./0116-handl-sfc-format.md)
+- Code and tests are named in the design doc.
+
+## Design
+
+The full record (context, tables, phases, trade-offs): [`design/0117-handl-view-component-syntax.md`](../design/0117-handl-view-component-syntax.md).
