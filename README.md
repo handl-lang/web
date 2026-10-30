@@ -25,3 +25,5 @@ Layout rule: ADR-0162 · ADR shape: ADR-0161 (both in `host/project`).
 
 Published documentation (tutorial, how-to, reference, explanation) belongs to
 the org `docs` repo, not here.
+
+- `DECISIONS.md` — generated recall surface: one line per decision rule with its ADR link (ADR-0161 §8); never hand-edited.
