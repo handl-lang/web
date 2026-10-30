@@ -49,7 +49,8 @@ Add a `plugin-sdkgen-backend-webidl` crate that parses WebIDL files and produces
 
 ## Enforcement
 
-- Code and tests are named in the design doc.
+- `plugin-sdkgen-backend-webidl` — where this is true.
+- `plugin-sdkgen-backend-c` — where this is true.
 
 ## Design
 

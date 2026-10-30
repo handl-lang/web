@@ -34,7 +34,8 @@ status_note: Proposed.
 
 ## Enforcement
 
-- Code and tests are named in the design doc.
+- `plugin-sdkgen-backend-dts` — where this is true.
+- `plugin-sdkgen-backend-c` — where this is true.
 
 ## Design
 
