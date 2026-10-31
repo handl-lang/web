@@ -1,3 +1,10 @@
++++
+id = "ADR-0003"
+title = "handl Frontend: Custom `.handl` Syntax"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: 'handl Frontend: Custom `.handl` Syntax'
 type: adr

@@ -1,3 +1,10 @@
++++
+id = "ADR-0117"
+title = "ADR-0117: Handl View / JSX-like Component Syntax for JS Targets"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: Handl View / JSX-like Component Syntax for JS Targets
 type: adr

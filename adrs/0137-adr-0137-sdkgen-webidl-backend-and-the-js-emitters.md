@@ -1,3 +1,10 @@
++++
+id = "ADR-0137"
+title = "ADR-0137: `sdkgen-webidl` backend and the JS emitters"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: '`sdkgen-webidl` backend and the JS emitters'
 type: adr

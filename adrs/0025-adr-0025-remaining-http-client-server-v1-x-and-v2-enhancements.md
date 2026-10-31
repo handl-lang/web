@@ -1,3 +1,10 @@
++++
+id = "ADR-0025"
+title = "ADR-0025 (Remaining): HTTP Client/Server v1.x and v2 Enhancements"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: 'ADR-0025 (Remaining): HTTP Client/Server v1.x and v2 Enhancements'
 type: adr

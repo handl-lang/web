@@ -1,3 +1,10 @@
++++
+id = "ADR-0116"
+title = "ADR-0116: Handl Single-File Component (`.hfc`) Format"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: Handl Single-File Component (`.hfc`) Format
 type: adr

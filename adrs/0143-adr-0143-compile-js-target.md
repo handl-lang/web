@@ -1,3 +1,10 @@
++++
+id = "ADR-0143"
+title = "ADR-0143: `compile-js` target"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: '`compile-js` target'
 type: adr

@@ -1,3 +1,10 @@
++++
+id = "ADR-0021"
+title = "Hot Module Replacement (HMR)"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: Hot Module Replacement (HMR)
 type: adr

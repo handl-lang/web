@@ -1,3 +1,10 @@
++++
+id = "ADR-0113"
+title = "ADR-0113: Handl SDK Generator — WebIDL / JS Backend"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: Handl SDK Generator — WebIDL / JS Backend
 type: adr

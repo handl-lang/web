@@ -1,3 +1,10 @@
++++
+id = "ADR-0115"
+title = "ADR-0115: Handl SDK Generator — TypeScript Declaration (.d.ts) Backend"
+status = "open"
+priority = "medium"
++++
+
 ---
 title: Handl SDK Generator — TypeScript Declaration (.d.ts) Backend
 type: adr
