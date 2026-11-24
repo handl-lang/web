@@ -1,0 +1,106 @@
+# workflows/gate.yaml — per-push gate for handl-lang/web.
+#
+# web is a scaffold repo (ADR-0143; ADR-0128 Phase 5): README + LICENSE +
+# AGENTS only — the web target's module extraction has not started, so
+# there is no code, no scripts, and nothing to build or lint. The
+# honest gate is therefore minimal: validate the pushed tree is a
+# real checkout carrying the floor docs. When modules/sdkgen-webidl
+# lands this file is replaced by the engine-family gate (ci.sh /
+# handl-gates include) like its siblings.
+#
+# Bupha/the fleet runner invokes:
+#
+#   GATE_REPO="$PWD" GATE_RESULTS="$PWD/.gate-results.jsonl" \
+#     peregrin campaign run workflows/gate.yaml --result .ci-result.json
+#
+# Verdict: .ci-result.json `.conclusion` == "success" (result: rules map
+# gate.pass/gate.fail + failure events).
+name: gate-web
+
+result:
+  - event: gate.pass
+    conclusion: success
+  - event: gate.fail
+    conclusion: failure
+  - event: gate.failed
+    conclusion: failure
+  - event: gate.init.failed
+    conclusion: failure
+  - event: gate.run.failed
+    conclusion: failure
+
+capabilities:
+  env:
+    - GATE_REPO
+    - GATE_RESULTS
+
+nodes:
+  # --- init: validate inputs, fresh results file --------------------
+  - id: gate.init
+    driver: shell
+    on: [start]
+    emits: [gate.due, gate.init.failed]
+    params:
+      cmd: >-
+        set -u;
+        REPO="${config.gate.repo:-${env("GATE_REPO","")}}";
+        [ -n "$REPO" ] || { echo "gate.repo is required — set GATE_REPO or config.gate.repo to an absolute checkout path"; exit 1; };
+        [ -d "$REPO" ] || { echo "no such directory: $REPO"; exit 1; };
+        RES="${config.gate.results:-${env("GATE_RESULTS","$HOME/.local/share/handl-gates/web.results.jsonl")}}";
+        mkdir -p "$(dirname "$RES")";
+        : > "$RES";
+        echo "gate-web: repo=$REPO results=$RES"
+      timeout: 60
+      emit:
+        "0": gate.due
+        default: gate.init.failed
+
+  # --- run: repo sanity — floor docs present, tree non-empty --------
+  - id: gate.run
+    driver: shell
+    on: [gate.due]
+    emits: [gate.done, gate.failed]
+    params:
+      repo: '${config.gate.repo:-${env("GATE_REPO","")}}'
+      results: '${config.gate.results:-${env("GATE_RESULTS","$HOME/.local/share/handl-gates/web.results.jsonl")}}'
+      timeout: 60
+      cmd: |
+        set -uo pipefail
+        REPO="${params.repo}"
+        RESULTS="${params.results}"
+        START=$(date +%s)
+        cd "$REPO" && REPO="$(pwd)" || { echo "no such directory: ${params.repo}"; exit 1; }
+        rc=0
+        for f in README.md LICENSE AGENTS.md; do
+          [ -s "$f" ] || { echo "missing floor file: $f" >&2; rc=1; }
+        done
+        [ "$rc" -eq 0 ] && [ -n "$(git ls-files | head -1)" ] \
+          || { echo "empty tree — no tracked files" >&2; rc=1; }
+        [ "$rc" -eq 0 ] && echo "ci passed: scaffold tree intact (no buildable content yet)"
+        if [ -n "$RESULTS" ]; then
+          esc=$(printf '%s' "$REPO" | sed 's/\\/\\\\/g; s/"/\\"/g')
+          printf '{"family":"shell","repo":"%s","rc":%s,"secs":%s}\n' "$esc" "$rc" "$(( $(date +%s) - START ))" >> "$RESULTS" 2>/dev/null || true
+        fi
+        exit $rc
+      emit:
+        "0": gate.done
+        default: gate.failed
+
+  # --- report: terminal verdict from the results record -------------
+  - id: gate.report
+    driver: shell
+    on: [gate.done, gate.failed]
+    emits: [gate.pass, gate.fail]
+    params:
+      cmd: >-
+        set -u;
+        F="${config.gate.results:-${env("GATE_RESULTS","$HOME/.local/share/handl-gates/web.results.jsonl")}}";
+        [ -s "$F" ] || { echo "no results record — gate produced nothing"; exit 1; };
+        line=$(tail -n 1 "$F");
+        rc=$(printf '%s' "$line" | sed -n 's/.*"rc":\([0-9][0-9]*\).*/\1/p');
+        echo "gate-web verdict: $line";
+        [ "${rc:-1}" = "0" ]
+      timeout: 60
+      emit:
+        "0": gate.pass
+        default: gate.fail
