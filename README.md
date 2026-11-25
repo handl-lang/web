@@ -27,7 +27,7 @@ target from [`compile-js`](https://github.com/handl-lang/compile-js).
 ## Development
 
 No build here yet — nothing is extracted. When `modules/*` lands it follows the
-engine-* shape: `ci.sh` as the gate (fmt → clippy → test → doc) and a committed
+engine-* shape: `workflows/gate.yaml` as the gate (fmt → clippy → test → doc) and a committed
 `bupha.toml`.
 
 ## Documentation
